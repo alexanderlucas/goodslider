@@ -1,12 +1,13 @@
 //
 //  SceneDelegate.swift
-//  Good Slider
+//  UITests
 //
-//  Created by Alex Lucas on 10/17/19.
+//  Created by Alex Lucas on 8/30/19.
 //  Copyright © 2019 Alex Lucas. All rights reserved.
 //
 
 import UIKit
+import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,7 +18,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+
+        // Create the SwiftUI view that provides the window contents.
+        let sd = SliderData(minValue: 0, maxValue: 50, defaultValue: 20, color: .pink)
+        
+        let contentView = SwiftSlider().environmentObject(sd)
+
+        // Use a UIHostingController as window root view controller.
+        if let windowScene = scene as? UIWindowScene {
+            let window = UIWindow(windowScene: windowScene)
+            window.rootViewController = UIHostingController(rootView: contentView)
+            self.window = window
+            window.makeKeyAndVisible()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Good Slider
+//  UITests
 //
-//  Created by Alex Lucas on 10/17/19.
+//  Created by Alex Lucas on 8/30/19.
 //  Copyright © 2019 Alex Lucas. All rights reserved.
 //
 
